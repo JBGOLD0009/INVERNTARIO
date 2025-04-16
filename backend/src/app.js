@@ -8,6 +8,10 @@ const app= express();
 /* set6ear un puesrto a mi web server */
 app.set("port",5000)
 
+/* Middleware */
+app.use(express.json());
+
+/* Cors */
 app.use(cors());
 
 /* routes */
