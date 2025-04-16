@@ -14,5 +14,8 @@ router.get("/:id",categoriaController.getCategory);/* para  crud - read 1 sola f
 /* Ruta que recibe parametro id de categoria a borrar */
 router.delete("/:id",categoriaController.deleteCategory);/* para  crud - delete 1 sola fila*/
 
+/* Ruta que rercibe como parametro tanto el cuerpo del id a actualizar */
+router.put("/:id",categoriaController.updateCategorias);/* para  crud - delete 1 sola fila*/
+
 /* hacemos disponible a mi sevrer app para toda la app */
 export default router;

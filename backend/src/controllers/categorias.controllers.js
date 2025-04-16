@@ -12,7 +12,7 @@ const getCategorias = async( req, res) =>{
 
 const PostCategorias = async (req,res) => {
     try{
-        const{CategoriaNombre , Descripcion, Imagen} =  req.body
+        const{CategoriaNombre , Descripcion, Imagen} =  req.body;
         
         const category = {CategoriaNombre,Descripcion,Imagen}
         const connection = await getConnection();
@@ -48,10 +48,24 @@ const deleteCategory = async( req, res) =>{
     }
     
 }
+const updateCategorias = async (req,res) => {
+    try{
+        const {id} = req.params
+        const{CategoriaNombre , Descripcion, Imagen} =  req.body ; 
+        const category = {CategoriaNombre,Descripcion,Imagen}
+        const connection = await getConnection();
+        const result = await connection.query("UPDATE categorias SET ? WHERE CategoriaID = ?",[category,id])
+        res.json(result)
+    }catch (error){
+        console.error("ERROR 500")
+    }
+
+}
 export const methodHTTP = {
     getCategorias,
     PostCategorias,
     getCategory,
     deleteCategory,
+    updateCategorias,
 }
 
