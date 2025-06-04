@@ -6,7 +6,7 @@ const router = Router();
 
 /* configuramos respuesta desde server metodo htt get */
 router.get("/",categoriaController.getCategorias); /* para read crud - read */
-router.post("/",categoriaController.PostCategorias);/* para read crud - create*/
+router.post("/",categoriaController.postCategorias);/* para read crud - create*/
 
 /* Ruta que rcibe un parametro */
 router.get("/:id",categoriaController.getCategory);/* para  crud - read 1 sola fila*/
