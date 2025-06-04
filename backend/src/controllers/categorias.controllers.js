@@ -29,8 +29,8 @@ const getCategory = async( req, res) =>{
         console.log(req.param);
         const {id} = req.params
         const connection = await getConnection();
-        const result = await connection.query("SELECT CategoriaID ,  CategoriaNombre , Descripcion, Imagen FROM categorias WHERE CategoriaID = ?", id)
-        res.json(result) ;
+        const [rows] = await connection.query("SELECT CategoriaID ,  CategoriaNombre , Descripcion, Imagen FROM categorias WHERE CategoriaID = ?", id)
+        res.json(rows) ;
     } catch (error) {
         console.error("ERROR 500")
     }
